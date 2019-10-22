@@ -5,11 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lala": "ls -la"
   },
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
+    "vue-material": "^1.0.0-beta-11",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -38,9 +41,27 @@
       "@vue/standard",
       "@vue/typescript"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "vue/no-async-in-computed-properties": "warning",
+      "vue/no-dupe-keys": "warning",
+      "vue/no-duplicate-attributes": "warning",
+      "vue/no-parsing-error": "warning",
+      "vue/no-reserved-keys": "warning",
+      "vue/no-shared-component-data": "warning",
+      "vue/no-side-effects-in-computed-properties": "warning",
+      "vue/no-template-key": "warning",
+      "vue/no-textarea-mustache": "warning",
+      "vue/no-unused-components": "warning",
+      "vue/no-unused-vars": "warning",
+      "vue/no-use-v-if-with-v-for": "warning",
+      "vue/require-component-is": "warning",
+      "vue/require-prop-type-constructor": "warning",
+      "vue/require-render-return": "warning",
+      "vue/require-v-for-key": "warning",
+      "vue/return-in-computed-property": "warning"
     }
   },
   "postcss": {
