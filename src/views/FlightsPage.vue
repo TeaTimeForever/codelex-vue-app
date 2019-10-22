@@ -1,21 +1,6 @@
 <template>
   <div class="flights">
-    <!-- <form>
-      <div>
-        <md-datepicker
-          v-on:md-closed="show($event)"
-          v-on:md-opened="show($event)"
-          v-model="fromDate" 
-          md-immediately />
-        <md-datepicker
-          v-on:md-closed="show($event)"
-          v-on:md-opened="show($event)"
-          v-model="toDate" 
-          md-immediately />
-      </div>
-
-    </form> -->
-    <FlightSearchForm></FlightSearchForm>
+    <FlightSearchForm v-on:searchDataUpdated="handleSearchForm($event)"></FlightSearchForm>
 
     <div class="filtered">
       <div class="list">
@@ -73,10 +58,10 @@ export default {
   },
   methods: {
     incrementAAHandler(ev: number) {
-      console.log('incrementAAHandler got ', ev)
+      console.log('FlightsPage got ', ev)
     },
-    show(event:any) {
-      console.log(event, this.fromDate, this.toDate);
+    handleSearchForm(ev: any) {
+      console.log('FlightPage got', ev);
     }
   }
 }
@@ -99,7 +84,7 @@ export default {
       display: flex;
       justify-content: space-between;
       .map, .list {
-        height: 100px;
+        // height: 100px;
         background-color: orange;
       }
     }
