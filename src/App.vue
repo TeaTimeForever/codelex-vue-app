@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header"></div>
+    <Header></Header>
     <div class="content">
       <md-tabs>
         <md-tab id="tab-home" md-label="Home" md-icon="home">
@@ -23,11 +23,13 @@
 </template>
 <script>
 import FlightPage from './views/FlightsPage';
+import Header from './components/Header.vue';
 
 export default {
   name: 'App',
   components: {
-    FlightPage
+    FlightPage,
+    Header
   }
 }
 </script>
@@ -42,9 +44,13 @@ export default {
   display: flex;
   flex-flow: column
 }
-.footer, .header {
-  height: 100px;
-  background-color: aqua;
+.md-tabs {
+  display: flex;
+  flex-direction: row !important;
+  .md-tabs-navigation {
+    display: flex;
+    flex-flow: column;
+  }
 }
 #nav {
   padding: 30px;
