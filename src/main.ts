@@ -7,6 +7,7 @@ import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css'
 
 Vue.use(VueMaterial)
+export const bus = new Vue();
 
 Vue.config.productionTip = false
 Vue.use(VueResource);

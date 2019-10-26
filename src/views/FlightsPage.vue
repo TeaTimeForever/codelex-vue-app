@@ -1,6 +1,7 @@
 <template>
   <div class="flights">
-    <FlightSearchForm v-on:searchDataUpdated="handleSearchForm($event)"></FlightSearchForm>
+    <!-- v-on:searchDataUpdated="handleSearchForm($event)" -->
+    <FlightSearchForm ></FlightSearchForm>
 
     <div class="filtered">
       <div class="list">
@@ -29,7 +30,7 @@ export default {
       
       fliAAAA: [{
         from: {
-          airportCode: 'MRS',
+          code: 'MRS',
           city: 'Marseille',
           country: 'France'
         },
@@ -38,7 +39,7 @@ export default {
       }, 
       {
         from: {
-          airportCode: 'VEN',
+          code: 'VEN',
           city: 'Venecia',
           country: 'Italy'
         },
@@ -47,7 +48,7 @@ export default {
       },
       {
         from: {
-          airportCode: 'MRC',
+          code: 'MRC',
           city: 'Agadir',
           country: 'Morocco'
         },
@@ -60,8 +61,18 @@ export default {
     incrementAAHandler(ev: number) {
       console.log('FlightsPage got ', ev)
     },
-    handleSearchForm(ev: any) {
-      console.log('FlightPage got', ev);
+    async handleSearchForm(ev: any) {
+      const searchData = await ev;
+      const requestBody = {
+        from: searchData.codeFrom,
+        to: searchData.codeTo,
+        departureDate: searchData.fromDate.toLocaleDateString().split('/').reverse().join('-')
+      };
+      console.log(requestBody)
+      const res = await this.$http.get(
+        'http://192.168.8.112:8080/api/flights/5'
+      );
+      console.log(await res.json())
     }
   }
 }

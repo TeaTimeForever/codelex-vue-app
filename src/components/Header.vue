@@ -4,7 +4,7 @@
       <md-button class="md-icon-button" @click="showNavigation = true">
         <md-icon>menu</md-icon>
       </md-button>
-      <span class="md-title">My Title</span>
+      <span class="md-title">Evend data: {{eventData}}</span>
 
       <div class="md-toolbar-section-end">
         <md-avatar >
@@ -17,11 +17,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { bus } from '../main';
 
 export default {
   name: 'Header',
   data(){
-    return {}
+    return {
+      eventData: ''
+    }
+  },
+  created() {
+    bus.$on('EmitWithBUS', (event) => {
+      console.log(event)
+      this.eventData = event;
+    })
   }
 }
 </script>

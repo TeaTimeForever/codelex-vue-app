@@ -13,11 +13,13 @@
     {{rates}}
     <input type="checkbox" v-model="flight.from.city">
   </div>
-  <button v-on:click="increment()">Bebebe button</button>
+  <button v-on:click="increment()">be button</button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { bus } from '../main';
+
 export default {
   name: 'FlightList',
   props: {
@@ -37,6 +39,8 @@ export default {
       this.i++;
       console.log('from FlightList', this.i);
       this.$emit('incrementAA', 'PARAM FROM CHILD');
+      bus.$emit('EmitWithBUS', 'lalala');
+
     },
     async makeGetRequest() {
       const promiseLike = this.$http.get('https://api.exchangeratesapi.io/latest');

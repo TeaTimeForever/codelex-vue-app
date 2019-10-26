@@ -5,14 +5,14 @@ export interface Flight {
 }
 
 export interface Airport {
-  airportCode: string;
+  code: string;
   city: string;
   country: string;
 }
 
 // TODO: remove me ASAP
 export const RIX = {
-  airportCode: 'RIX',
+  code: 'RIX',
   city: 'Riga',
   country: 'Latvia'
 }
